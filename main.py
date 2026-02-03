@@ -18,5 +18,13 @@ def get_avaliable_sols(data):
     avaliable_sols = data["sol_keys"]
     return avaliable_sols
 
+def get_current_sol(data):
+    avaiable_sols = get_avaliable_sols(data)
+    current_sol = avaiable_sols[-1]
+    return current_sol
+
 # for testing
 result = get_mars_data()
+avaiable_sols = get_avaliable_sols(result)
+current_sol = get_current_sol(result)
+print(current_sol)
