@@ -19,13 +19,13 @@ def get_available_sols(data):
     return available_sols
 
 def get_current_sol(data):
-    avaiable_sols = get_available_sols(data)
-    current_sol = avaiable_sols[-1]
+    available_sols = get_available_sols(data)
+    current_sol = available_sols[-1]
     return current_sol
 
 def get_sol_data(data, sol):
-    avaiable_sols = get_available_sols(data)
-    if sol in avaiable_sols:
+    available_sols = get_available_sols(data)
+    if sol in available_sols:
         sol_data = data[sol]
         return sol_data
     else:
