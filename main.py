@@ -48,4 +48,6 @@ current_sol = get_current_sol(result)
 sol_data = result[current_sol]
 sol_temperature = sol_data["AT"]
 
-print(sol_temperature)
+temp = get_sol_temperature(sol_data)
+
+print(temp)
