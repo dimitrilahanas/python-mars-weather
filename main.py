@@ -14,23 +14,34 @@ def get_mars_data():
     else:
         return f"Error: {response.status_code}"
 
-def get_avaliable_sols(data):
-    avaliable_sols = data["sol_keys"]
-    return avaliable_sols
+def get_available_sols(data):
+    available_sols = data["sol_keys"]
+    return available_sols
 
 def get_current_sol(data):
-    avaiable_sols = get_avaliable_sols(data)
+    avaiable_sols = get_available_sols(data)
     current_sol = avaiable_sols[-1]
     return current_sol
 
 def get_sol_data(data, sol):
-    sol_data = data[sol]
-    return sol_data
+    avaiable_sols = get_available_sols(data)
+    if sol in avaiable_sols:
+        sol_data = data[sol]
+        return sol_data
+    else:
+        return f"{sol} not found."
+
+def get_sol_temperature(sol_data):
+    temperature = sol_data["AT"]
+    average_temperature = temperature["av"]
+    minimum_temperature = temperature["mn"]
+    maximum_temperature = temperature["mx"]
+    return average_temperature, minimum_temperature, maximum_temperature
 
 
 # for testing
 result = get_mars_data()
-avaiable_sols = get_avaliable_sols(result)
+avaiable_sols = get_available_sols(result)
 
 
 current_sol = get_current_sol(result)
