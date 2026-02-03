@@ -23,8 +23,18 @@ def get_current_sol(data):
     current_sol = avaiable_sols[-1]
     return current_sol
 
+def get_sol_data(data, sol):
+    sol_data = data[sol]
+    return sol_data
+
+
 # for testing
 result = get_mars_data()
 avaiable_sols = get_avaliable_sols(result)
+
+
 current_sol = get_current_sol(result)
-print(current_sol)
+sol_data = result[current_sol]
+sol_temperature = sol_data["AT"]
+
+print(sol_temperature)
