@@ -1,27 +1,22 @@
+from dotenv import load_dotenv
+import os
 import requests
 
+load_dotenv()
+API_KEY = os.getenv("NASA_API_KEY")
+
 def get_mars_data():
-    url = "https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0"
+    url = f"https://api.nasa.gov/insight_weather/?api_key={API_KEY}&feedtype=json&ver=1.0"
     response = requests.get(url)
 
-    match response.status_code:
-        case 200:
-            data = response.json()
-            return data
-        case 201:
-            return "New resource created."
-        case 204:
-            return "Succeful but no data returned."
-        case 400:
-            return "Invalid request."
-        case 401:
-            return "Missing API key."
-        case 500:
-            return "Server error."
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return f"Error: {response.status_code}"
 
 def get_avaliable_sols(data):
     avaliable_sols = data["sol_keys"]
-    return(f"Avaliable sols: {avaliable_sols}")
+    return avaliable_sols
 
 # for testing
 result = get_mars_data()
