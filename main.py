@@ -34,9 +34,7 @@ def get_sol_data(data, sol):
 def get_sol_temperature(sol_data):
     temperature = sol_data["AT"]
     average_temperature = temperature["av"]
-    minimum_temperature = temperature["mn"]
-    maximum_temperature = temperature["mx"]
-    return average_temperature, minimum_temperature, maximum_temperature
+    return average_temperature
 
 def get_sol_season(sol_data):
     current_season = sol_data["Season"]
@@ -48,11 +46,18 @@ def get_sol_wind_direction(sol_data):
     compass_point = wind_direction["compass_point"]
     return compass_point
 
+def get_sol_wind_speed(sol_data):
+    horizontal_speed = sol_data["HWS"]
+    average_speed = horizontal_speed["av"]
+
+    return average_speed
+
 # for testing
 result = get_mars_data()
 current_sol = get_current_sol(result)
 sol_data = get_sol_data(result, current_sol)
 season = get_sol_season(sol_data)
 wind_direction = get_sol_wind_direction(sol_data)
+speed = get_sol_wind_speed(sol_data)
 
-print(wind_direction)
+print(speed)
