@@ -38,16 +38,16 @@ def get_sol_temperature(sol_data):
     maximum_temperature = temperature["mx"]
     return average_temperature, minimum_temperature, maximum_temperature
 
+def get_sol_season(sol_data):
+    current_season = sol_data["Season"]
+    if current_season == "fall":
+        current_season == "autumn"
+    return current_season
 
 # for testing
 result = get_mars_data()
-avaiable_sols = get_available_sols(result)
-
-
 current_sol = get_current_sol(result)
-sol_data = result[current_sol]
-sol_temperature = sol_data["AT"]
+sol_data = get_sol_data(result, current_sol)
+season = get_sol_season(sol_data)
 
-temp = get_sol_temperature(sol_data)
-
-print(temp)
+print(season)
