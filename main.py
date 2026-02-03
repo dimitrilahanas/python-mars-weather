@@ -34,7 +34,7 @@ def get_sol_data(data, sol):
 def get_sol_temperature(sol_data):
     temperature = sol_data["AT"]
     average_temperature = temperature["av"]
-    return average_temperature
+    return f"{average_temperature} degrees C"
 
 def get_sol_season(sol_data):
     current_season = sol_data["Season"]
@@ -50,7 +50,7 @@ def get_sol_wind_speed(sol_data):
     horizontal_speed = sol_data["HWS"]
     average_speed = horizontal_speed["av"]
 
-    return average_speed
+    return f"{average_speed} m/s"
 
 # for testing
 result = get_mars_data()
