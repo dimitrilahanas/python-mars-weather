@@ -51,13 +51,3 @@ def get_sol_wind_speed(sol_data):
     average_speed = horizontal_speed["av"]
 
     return f"{average_speed} m/s"
-
-# for testing
-result = get_mars_data()
-current_sol = get_current_sol(result)
-sol_data = get_sol_data(result, current_sol)
-season = get_sol_season(sol_data)
-wind_direction = get_sol_wind_direction(sol_data)
-speed = get_sol_wind_speed(sol_data)
-
-print(speed)
