@@ -18,6 +18,10 @@ def get_mars_data():
             return "Missing API key."
         case 500:
             return "Server error."
-        
+
+def get_avaliable_sols(data):
+    avaliable_sols = data["sol_keys"]
+    return(f"Avaliable sols: {avaliable_sols}")
+
+# for testing
 result = get_mars_data()
-print(result)
