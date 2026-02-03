@@ -40,14 +40,19 @@ def get_sol_temperature(sol_data):
 
 def get_sol_season(sol_data):
     current_season = sol_data["Season"]
-    if current_season == "fall":
-        current_season == "autumn"
     return current_season
+
+def get_sol_wind_direction(sol_data):
+    wind = sol_data["WD"]
+    wind_direction = wind["most_common"]
+    compass_point = wind_direction["compass_point"]
+    return compass_point
 
 # for testing
 result = get_mars_data()
 current_sol = get_current_sol(result)
 sol_data = get_sol_data(result, current_sol)
 season = get_sol_season(sol_data)
+wind_direction = get_sol_wind_direction(sol_data)
 
-print(season)
+print(wind_direction)
