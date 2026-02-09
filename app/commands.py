@@ -1,5 +1,5 @@
-from mars_data import MarsData
-from models.sol import Sol
+from app.mars_data import MarsData
+from app.models.sol import Sol
 
 class Commands:
     mars_data = MarsData.get_mars_data()
