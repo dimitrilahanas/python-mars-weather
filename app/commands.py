@@ -21,5 +21,5 @@ class Commands:
             temperature=data["AT"]["av"],
             season=data["Season"],
             wind_direction=data["WD"]["most_common"]["compass_point"],
-            wind_speed=["HWS"]["av"]
+            wind_speed=data["HWS"]["av"]
         )
