@@ -1,6 +1,9 @@
 from dotenv import load_dotenv
+from fastapi import FastAPI
 import os
 import requests
+
+app = FastAPI()
 
 load_dotenv()
 API_KEY = os.getenv("NASA_API_KEY")
@@ -14,40 +17,40 @@ def get_mars_data():
     else:
         return f"Error: {response.status_code}"
 
-def get_available_sols(data):
-    available_sols = data["sol_keys"]
-    return available_sols
+@app.get("/avaliable-sols")
+def get_available_sols():
+    data = get_mars_data()
+    return data["sol_keys"]
 
-def get_current_sol(data):
-    available_sols = get_available_sols(data)
-    current_sol = available_sols[-1]
-    return current_sol
+@app.get("/current-sol")
+def get_current_sol():
+    data = get_mars_data()
+    return data["sol_keys"][-1]
 
-def get_sol_data(data, sol):
-    available_sols = get_available_sols(data)
-    if sol in available_sols:
-        sol_data = data[sol]
-        return sol_data
-    else:
-        return f"{sol} not found."
-
-def get_sol_temperature(sol_data):
+@app.get("/sol-temp/{sol}")
+def get_sol_temperature(sol: str):
+    data = get_mars_data()
+    sol_data = data[sol]
     temperature = sol_data["AT"]
-    average_temperature = temperature["av"]
-    return f"{average_temperature} degrees C"
+    return f"{temperature["av"]} degrees C"
 
-def get_sol_season(sol_data):
-    current_season = sol_data["Season"]
-    return current_season
+@app.get("/sol-season/{sol}")
+def get_sol_season(sol: str):
+    data = get_mars_data()
+    sol_data = data[sol]
+    return sol_data["Season"]
 
-def get_sol_wind_direction(sol_data):
+@app.get("/sol-wind-direction/{sol}")
+def get_sol_wind_direction(sol: str):
+    data = get_mars_data()
+    sol_data = data[sol]
     wind = sol_data["WD"]
     wind_direction = wind["most_common"]
-    compass_point = wind_direction["compass_point"]
-    return compass_point
+    return wind_direction["compass_point"]
 
-def get_sol_wind_speed(sol_data):
+@app.get("/sol-wind-speed/{sol}")
+def get_sol_wind_speed(sol: str):
+    data = get_mars_data()
+    sol_data = data[sol]
     horizontal_speed = sol_data["HWS"]
-    average_speed = horizontal_speed["av"]
-
-    return f"{average_speed} m/s"
+    return f"{horizontal_speed["av"]} m/s"
