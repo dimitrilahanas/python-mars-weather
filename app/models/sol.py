@@ -4,11 +4,3 @@ class Sol:
         self.season = season
         self.wind_direction = wind_direction
         self.wind_speed = wind_speed
-
-    def __str__(self):
-        return f'''
-        Temperature = {self.temperature}
-        Season = {self.season}
-        Wind Direction = {self.wind_direction}
-        Wind Speed = {self.wind_speed}
-        '''
