@@ -5,7 +5,8 @@ app = FastAPI()
 
 app.get("/{sol}")
 def main(sol: str):
-    Commands.get_sol_data(sol)
+    sol_obj = Commands.get_sol_data(sol)
+    return sol_obj.__dict__
         
 if __name__ == "__main__":
     main()
