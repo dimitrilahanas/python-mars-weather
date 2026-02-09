@@ -46,15 +46,16 @@ This project can be used as a **backend for a Mars weather dashboard** (e.g., we
 ## 🗂 Project Structure
 
 python-mars-weather/
-├─ main.py # FastAPI app with endpoints
-├─ .env # Stores NASA API key
+├─ main.py             # FastAPI app with endpoints
+├─ .env                # Stores NASA API key
 ├─ app/
-│ ├─ init.py
-│ ├─ mars_data.py # MarsData class to fetch API data
-│ ├─ commands.py # Commands class to process and return Sol data
-│ └─ models/
-│ ├─ init.py
-│ └─ sol.py # Sol model
+│   ├─ __init__.py
+│   ├─ mars_data.py    # MarsData class to fetch API data
+│   ├─ commands.py     # Commands class to process and return Sol data
+│   └─ models/
+│       ├─ __init__.py
+│       └─ sol.py      # Sol model
+
 
 
 ---
