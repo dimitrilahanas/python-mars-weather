@@ -15,7 +15,7 @@ It demonstrates how to:
 - Serve data through a simple API
 - Model data objects for app-friendly consumption
 
-This project is **planned to be used as the backend** for the
+This project is **planned to be used as the backend** for my
 [Mars Weather Dashboard](https://github.com/dimitrilahanas/mars-weather-dashboard),
 which provides a frontend interface for visualising the data served by this API. 
 
