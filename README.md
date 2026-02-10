@@ -15,7 +15,9 @@ It demonstrates how to:
 - Serve data through a simple API
 - Model data objects for app-friendly consumption
 
-This project can be used as a **backend for a Mars weather dashboard** (e.g., web app or Flutter app).  
+This project is **planned to be used as the backend** for the
+[Mars Weather Dashboard](https://github.com/dimitrilahanas/mars-weather-dashboard),
+which provides a frontend interface for visualising the data served by this API. 
 
 ---
 
