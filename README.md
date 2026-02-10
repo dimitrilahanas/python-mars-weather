@@ -1,7 +1,6 @@
 # Python-Mars-Weather
 
 A Python project that fetches and serves Mars weather data from NASA’s InSight lander API.  
-⚠️ **Note:** This project is for learning purposes. It demonstrates API handling, data modelling, and serving data via FastAPI.  
 
 ---
 
